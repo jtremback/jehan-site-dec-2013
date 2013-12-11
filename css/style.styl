@@ -1,0 +1,196 @@
+@import "onepagescroll"
+@import "normalize"
+// @import "type"
+// @import "mixins"
+
+html
+  font-family "Merriweather"
+
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+animation()
+  vendor('animation', arguments)
+
+transform()
+  vendor('transform', arguments)
+
+transform-style()
+  vendor('transform-style', arguments)
+
+transform-origin()
+  vendor('transform-origin', arguments)
+
+backface-visibility()
+  vendor('backface-visibility', arguments)
+
+/* define the animations */
+@keyframes spin-x
+  0%
+    transform: rotateX(0)
+  100%
+    transform: rotateX(360deg)
+
+@keyframes spin-y
+  0%
+    transform: rotateY(0)
+  100%
+    transform: rotateY(360deg)
+
+@keyframes spin-z
+  0%
+    transform: rotateZ(0)
+  100%
+    transform: rotateZ(360deg)
+
+.cube-fx {
+  height: 300px;
+  margin-top: 100px;
+}
+
+/* one wrapper for each axis */
+.axis-x, .axis-y, .axis-z {
+  position: relative;
+  margin: 0 auto;
+  width: 200px;
+  transform-style: preserve-3d;
+  transform-origin: 100px 100px 0px;
+}
+
+/* apply the animations */
+.axis-x {
+  animation: spin-x 15.593s infinite linear;
+}
+.axis-y {
+  animation: spin-y 20.137s infinite linear;
+}
+.axis-z {
+  animation: spin-z 18.071s infinite linear;
+}
+
+/* styles shared by all sides of the cube */
+.axis-z div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: block;
+  background: rgba(0,0,0,0.0);
+  font-size: 20px;
+  text-align: center;
+  line-height: 200px;
+  color: rgba(255,255,255,1);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  backface-visibility: visible;
+}
+
+fg = #bbb
+bg = #464646
+
+/* position and color each side of the cube */
+.pane-r {
+  transform:rotateX(-90deg) translateY(100px) matrix(1, 0, 0, -1, 0, 0);
+  transform-origin: top center;
+  background: bg !important;
+}
+.pane-g {
+  transform:rotateY(-270deg) translateX(100px);
+  transform-origin: top right;
+  background: bg !important;
+}
+.pane-c {
+  transform: translateZ(-100px) rotateY(180deg) rotateZ(180deg);
+  background: bg !important;
+}
+.pane-b {
+  transform: translateZ(100px);
+  background: fg !important;
+}
+
+.pane-m {
+  transform:rotateX(90deg) translateY(-100px) matrix(1, 0, 0, -1, 0, 0);
+  transform-origin: bottom center;
+  background: fg !important;
+}
+.pane-y {
+  transform:rotateY(270deg) translateX(-100px);
+  transform-origin: center left;
+  background: fg !important;
+
+}
+
+
+
+@keyframes pulse
+  0% 
+    text-shadow 0 0 14px rgba(0, 0, 0, 0.2) 
+  50% 
+    text-shadow 0 0 24px rgba(0, 0, 0, 0.7)
+  100%
+    text-shadow 0 0 14px rgba(0, 0, 0, 0.2)
+
+
+
+.title-page
+  background-color #464646
+  .title
+    color #ddd
+    width 100%
+    text-align center
+    font-size 80px
+    margin-bottom 0
+    animation pulse 3.593s infinite ease
+  .email
+    color #aaa
+    margin-top 0
+    width 100%
+    text-align center
+    &::selection
+      background #000
+
+// .project-page
+//   padding 30px
+
+.nginx-page
+  background-color #27283D
+
+.eros-page
+  background-color #352129
+
+.hypothesis-page
+  background-color #213236
+
+.chronometer-page
+  background-color #27283D
+
+.expdesigner-page
+  background-color #213236
+
+.project-image
+  max-width 100%
+
+.bg-image
+  width 90%
+  margin-right auto
+  margin-left auto
+  height 100%
+  background-position center center
+  background-size contain
+  background-repeat no-repeat
+
+.nginx-image
+  background-image url('../images/nginx-full_1160.png')
+
+.eros-image
+  background-image url('../images/eros-full_1160.png')
+
+.hypothesis-image
+  background-image url('../images/hypothesis-full_1160.png')
+
+.chronometer-image
+  background-image url('../images/chronometer-full_1160.png')
+
+.expdesigner-image
+  background-image url('../images/expdesigner-full_1160.png')
