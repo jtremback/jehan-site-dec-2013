@@ -5,6 +5,14 @@
 
 html
   font-family "Merriweather"
+  background-color #464646
+
+link-color = #42CAFC
+
+a:link
+  color link-color
+a:visited
+  color darken(link-color, 40%)
 
 vendor(prop, args)
   -webkit-{prop} args
@@ -13,6 +21,9 @@ vendor(prop, args)
 
 animation()
   vendor('animation', arguments)
+
+transition()
+  vendor('transition', arguments)
 
 transform()
   vendor('transform', arguments)
@@ -150,8 +161,32 @@ bg = #464646
     &::selection
       background #000
 
-// .project-page
-//   padding 30px
+.project-page
+  .description
+    transition left 500ms ease
+    display table
+    overflow auto
+    position absolute
+    top 0
+    left 100%
+    width 100%
+    height 100%
+    color #ddd
+    font-size 18px
+    .description-text 
+      display table-cell
+      vertical-align middle
+      padding 30px 50px
+      .description-text-box
+        margin-right auto
+        margin-left auto
+        max-width 600px
+        padding 50px
+        background-color rgba(#000, .8)
+
+    &.active
+      left 0
+
 
 .nginx-page
   background-color #27283D

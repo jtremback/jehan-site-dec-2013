@@ -256,6 +256,13 @@ table {
 }
 html {
   font-family: "Merriweather";
+  background-color: #464646;
+}
+a:link {
+  color: #42cafc;
+}
+a:visited {
+  color: #038abc;
 }
 /* define the animations */
 .cube-fx {
@@ -379,6 +386,35 @@ html {
 }
 .title-page .email::selection {
   background: #000;
+}
+.project-page .description {
+  -webkit-transition: left 500ms ease;
+  -moz-transition: left 500ms ease;
+  transition: left 500ms ease;
+  display: table;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  color: #ddd;
+  font-size: 18px;
+}
+.project-page .description .description-text {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 30px 50px;
+}
+.project-page .description .description-text .description-text-box {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 600px;
+  padding: 50px;
+  background-color: rgba(0,0,0,0.8);
+}
+.project-page .description.active {
+  left: 0;
 }
 .nginx-page {
   background-color: #27283d;
