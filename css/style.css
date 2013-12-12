@@ -387,6 +387,24 @@ a:visited {
 .title-page .email::selection {
   background: #000;
 }
+.scroll-down {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+  height: 70px;
+  margin-top: 40px;
+  cursor: pointer;
+  background-image: url("../images/down.png");
+  background-position: center center;
+  background-size: 49%;
+  background-repeat: no-repeat;
+  border: 1px solid transparent;
+}
+.scroll-down:hover {
+  border: 1px solid #bbb;
+  border-radius: 1000px;
+}
 .project-page .description {
   -webkit-transition: left 500ms ease;
   -moz-transition: left 500ms ease;

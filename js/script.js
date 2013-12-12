@@ -17,4 +17,8 @@ $(".main").onepage_scroll({
 $('.js-toggle-description').css('cursor', 'pointer')
 $('.js-toggle-description').on('click', function() {
   $(this).parents('section').children('.description').toggleClass('active');
+});
+
+$('.js-scrolldown').on('click', function(){
+  $(".main").moveDown();
 })
